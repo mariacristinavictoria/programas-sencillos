@@ -1,0 +1,122 @@
+***join en listas de Python.
+The string join() method returns a string by joining all the elements of an iterable (list, string, tuple), separated by the given separator.Ejemplo: 
+text = ['Python', 'is', 'a', 'fun', 'programming', 'language']
+print('_'.join(text))
+En este ejemplo el join unirá todos los elementos de la lista en un solo string usando como separador "_".
+****Construir cadena separada por caritas( en el codigo usar join como separador )
+palabras como los caracteres dentro de las palabras tengan un 50% de posibilidades de estar en mayúsculas o minúsculas, puedes utilizar el siguiente código:
+
+
+import random
+
+cadena1 = input("Introduce una cadena de caracteres: ")
+
+emoji_list = ["??", "??", "??", "??", "??", "??", "??", "??", "?", "??"]
+emoji = ''.join(random.choices(emoji_list, k=10))
+
+palabras_modificadas = []
+for palabra in cadena1.split():
+    palabra_modificada = ''.join([caracter.upper() if random.random() < 0.5 else caracter.lower() for caracter in palabra])
+    palabras_modificadas.append(palabra_modificada)
+
+cadena_modificada = emoji.join(palabras_modificadas)
+
+print("La cadena con palabras y caracteres en mayúscula y minúscula:", cadena_modificada)
+En este código, después de generar la cadena aleatoria de emojis, iteramos sobre cada palabra de la cadena de entrada utilizando un bucle for. Para cada palabra, aplicamos una comprensión de listas similar a la versión anterior para modificar los caracteres dentro de la palabra, con un 50% de posibilidades de estar en mayúsculas o minúsculas.
+
+Luego, agregamos cada palabra modificada a una lista palabras_modificadas. Finalmente, utilizamos ''.join() para unir las palabras modificadas en una cadena nuevamente, separadas por la cadena de emojis aleatoria.
+
+De esta manera, tanto las palabras como los caracteres dentro de las palabras tendrán un 50% de posibilidades de estar en mayúsculas o minúsculas.
+
+
+****Programa para contar las letras que se repite en el texto, ingresado por el usuario:
+
+texto = input("Ingrese un texto: ")
+letra = input("Ingrese una letra: ")
+
+contador = texto.count(letra)
+
+print(int(contador))
+
+
+
+*****Programa para contar las letras desde el salto ( es decir al reves -1):Slice notation [a:b:c] in Python.
+a: donde se empieza (optativo)
+b: donde se acaba (optativo)
+c: el salto (optativo)
+-Si omites la a quedaría: [:b:c] que significa empieza lo más pronto que puedas en la dirección del salto (esto es, si c es un número positivo la dirección del salto es hacia adelante y por tanto el primer caracter en el que se puede empezar es el primer caracter. Si c es un número negativo (significa recorrer la secuencia al revés) el primer caracter en el que se puede empezar es el último caracter)
+-Si omites la b quedaría: [a::c]: significa empieza en a y vete saltando según indica c (hacia adelante o hacia atrás el número que sea) y acaba lo más tarde que puedas parando cuando llegues al límite de la secuencia en esa dirección.
+
+c = "hola mundo"[ : : -1]
+print(c)
+
+
+***programa para imprimir una cadena de texto, al revés:
+
+
+cadena = "hola mundo"[::-1]
+print(cadena)
+
+
+explicación del código: 
+
+tienes una cuerda con letras escritas y quieres leerla al revés, como si estuvieras mirándola en un espejo. Aquí es donde entra en juego la línea de código cadena = "hola mundo"[::-1]. Permíteme desglosarlo de manera sencilla:
+"hola mundo": Esto es la cuerda original que queremos revertir
+
+
+[::]: Esta parte indica que queremos seleccionar todos los elementos de la cuerda.
+
+
+-1: Especifica que queremos recorrer la cuerda en orden inverso, desde el último elemento hasta el primero.
+
+
+Entonces, al combinar todo esto, estamos diciendo: "Toma la cuerda 'hola mundo', selecciona todos los elementos y recórrelos en orden inverso". 
+
+El resultado final es la cuerda "odnum aloh", que se imprime en la consola con print(cadena).
+
+
+*****PALINDRO***** contar palabras derecha-izquierda y viceversa; capicua cuando usamos numeros: codigo con palindro:
+
+***Programa que nos dice si una frase es polindrica true, false si no lo es:
+
+
+frase = input("Ingrese una frase: ")
+
+
+frase = frase.replace(" ", "")
+
+
+es_palindromo = frase == frase[::-1]
+
+print(es_palindromo)
+
+
+*****Breve resumen de codigos de programas efectuados en python usando listas de comprension, upper, lower, emoji como separadores, contadores de palabras, true, false de palabras polindricas, verificacion de cadenas contenidas en otras; En primer lugar, hemos explorado un código que modifica una cadena de texto. El usuario ingresa una cadena de caracteres y el programa toma el último carácter, lo convierte a mayúscula y lo reemplaza en la cadena original. El resultado se muestra por pantalla. Esto se logra utilizando la indexación de cadenas y el método upper() para convertir el carácter a mayúscula.
+
+Luego, hemos avanzado hacia la generación de cadenas con caracteres en mayúsculas y minúsculas de forma aleatoria. Para esto, utilizamos la biblioteca random y la comprensión de listas. El programa solicita al usuario una cadena de texto y genera una nueva cadena en la que cada carácter tiene un 50% de probabilidad de estar en mayúscula o minúscula. El resultado se muestra por pantalla.
+
+Después, hemos realizado variaciones en los códigos anteriores utilizando diferentes enfoques. Hemos implementado la generación de cadenas con caracteres en mayúsculas y minúsculas utilizando comprensión de listas y condicionales en una sola línea de código. También hemos modificado la separación de palabras utilizando emojis, permitiendo que sea aleatoria en la elección de los emojis y combinando las letras en mayúsculas y minúsculas en cada palabra.
+
+Posteriormente, nos hemos adentrado en el conteo de letras repetidas en un texto y hemos permitido que el contador comience a leer desde el salto (-1) utilizando el método count() de las cadenas.
+
+Finalmente, hemos abordado la verificación de si una frase es un palíndromo, es decir, si se lee igual de izquierda a derecha que de derecha a izquierda. Hemos eliminado los espacios en blanco y hemos utilizado la comparación de cadenas en su forma original y su forma invertida mediante el uso de la técnica de rebanado [::-1]. También hemos ofrecido la opción de realizar la verificación sin considerar mayúsculas y minúsculas.
+
+En resumen, hemos explorado diversos códigos que involucran la manipulación y análisis de cadenas de texto, utilizando conceptos como indexación, métodos de cadenas, generación aleatoria, comprensión de listas, condicionales, y técnicas de comparación y reemplazo de cadenas. Estas herramientas nos permiten interactuar con las cadenas de texto de manera dinámica y realizar diversas operaciones para modificar y analizar su contenido.
+Ahora veremos un codigo de verificacion de una cadena contenida en otra cadena1 = "hola"
+cadena2 = "hola  mundo  feliz"
+
+if cadena1 in cadena2:
+    print("La cadena 1 está presente en la cadena 2")
+En este código, se definen dos variables: cadena1 y cadena2. cadena1 contiene la cadena "hola" y cadena2 contiene la cadena "hola mundo feliz".
+
+Luego, se utiliza la declaración if para verificar si cadena1 está presente en cadena2 utilizando el operador in. Este operador verifica si la cadena1 está contenida en la cadena2. En este caso, dado que "hola" está presente en "hola mundo feliz", la condición se cumple y se imprime "La cadena 1 está presente en la cadena 2".
+
+cadena2 = cadena2.replace("  ", " ")
+print(cadena2)
+Después, se utiliza el método replace() para reemplazar las apariciones de " " (dos espacios consecutivos) por un solo espacio en cadena2. Esto se realiza utilizando el método replace() de las cadenas, donde se especifica la subcadena a buscar y la subcadena de reemplazo. En este caso, " " se reemplaza por un solo espacio " ".
+
+Luego, se imprime la cadena2 modificada mediante print(cadena2). El resultado es "hola mundo feliz" ya que los espacios duplicados han sido reemplazados por un solo espacio.
+
+En resumen, este código verifica si cadena1 está presente en cadena2 utilizando el operador in, y luego realiza un reemplazo de subcadena utilizando el método replace() para eliminar espacios duplicados en cadena2. 
+
+
